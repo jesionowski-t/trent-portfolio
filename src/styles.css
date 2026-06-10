@@ -226,7 +226,7 @@ a {
 
 .nav__logo-name {
   font-family: var(--font-mono);
-  font-size: 0.92rem;
+  font-size: 1.12rem;
   font-weight: 600;
   letter-spacing: -0.01em;
 }
@@ -238,10 +238,10 @@ a {
 
 .nav__logo-role {
   font-family: var(--font-mono);
-  font-size: 0.58rem;
-  letter-spacing: 0.2em;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--faint);
+  color: var(--muted);
 }
 
 .nav__links {
@@ -1352,8 +1352,193 @@ a {
   color: var(--faint);
 }
 
+/* footer layout with form */
+.footer__main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(40px, 5vw, 80px);
+  align-items: start;
+}
+
+.footer__social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+/* ── Contact form ────────────────────────────────────────── */
+.cform {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--bg);
+  padding: clamp(20px, 2.6vw, 30px);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.cform__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.cform__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.cform__field label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.cform__field input,
+.cform__field textarea {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 12px 14px;
+  width: 100%;
+  resize: vertical;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.cform__field input::placeholder,
+.cform__field textarea::placeholder {
+  color: var(--faint);
+}
+
+.cform__field input:focus,
+.cform__field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--panel-raise);
+}
+
+.cform__honey {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.cform__foot {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.cform__err {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--warn);
+}
+
+.cform__err a {
+  text-decoration: underline;
+}
+
+.cform--done {
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 280px;
+}
+
+.cform__ok {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.cform__ok span {
+  animation: blink-soft 2.4s ease-in-out infinite;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.cform__ok-sub {
+  color: var(--muted);
+  font-size: 0.94rem;
+  margin-bottom: 10px;
+}
+
+/* ── Cursor effect ───────────────────────────────────────── */
+.cursor-fx {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(0, 229, 153, 0.55);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  display: grid;
+  place-items: center;
+  transition: opacity 0.3s, width 0.25s, height 0.25s, border-color 0.25s, background 0.25s;
+  will-change: transform;
+}
+
+.cursor-fx__dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  transition: transform 0.25s;
+}
+
+.cursor-fx--active {
+  width: 52px;
+  height: 52px;
+  border-color: var(--accent);
+  background: rgba(0, 229, 153, 0.08);
+}
+
+.cursor-fx--active .cursor-fx__dot {
+  transform: scale(1.6);
+}
+
+.cursor-fx--down {
+  width: 26px;
+  height: 26px;
+}
+
+@media (pointer: coarse) {
+  .cursor-fx {
+    display: none;
+  }
+}
+
+/* about page CTA */
+.about-hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
 /* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 1020px) {
+  .footer__main {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
   .hero__inner {
     grid-template-columns: 1fr;
     gap: 44px;
@@ -1458,5 +1643,15 @@ a {
   .edu-list li {
     grid-template-columns: 1fr;
     gap: 6px;
+  }
+
+  .cform__row {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__social .btn,
+  .about-hero__cta .btn {
+    width: 100%;
+    justify-content: center;
   }
 }

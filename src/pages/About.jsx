@@ -1,4 +1,4 @@
-import { about } from '../data.js'
+import { about, site } from '../data.js'
 import Reveal, { AccentText, Page } from '../components/Reveal.jsx'
 
 export default function About() {
@@ -22,6 +22,18 @@ export default function About() {
               </Reveal>
             ))}
           </div>
+          <Reveal delay={0.25}>
+            <div className="about-hero__cta">
+              <a className="btn btn--solid" href={site.resumeUrl} target="_blank" rel="noreferrer">
+                View my resume
+                <span aria-hidden="true">↓</span>
+              </a>
+              <a className="btn" href={site.linkedin} target="_blank" rel="noreferrer">
+                LinkedIn
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
 

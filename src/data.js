@@ -12,6 +12,7 @@ export const site = {
   linkedin: 'https://linkedin.com/in/trentjesionowski',
   location: 'Atlanta, GA',
   availability: 'Open to digital transformation work',
+  resumeUrl: '/Trent-Jesionowski-Resume.pdf',
 }
 
 export const hero = {
@@ -278,17 +279,31 @@ export const about = {
       current: true,
     },
     {
-      period: '2025 — 2026',
+      period: '2025 — Present',
       role: 'Founder & Web Designer',
       org: 'Centurion Site Design',
-      desc: 'End-to-end product delivery for client sites — discovery, wireframing, accessibility standards, and iterative testing from first interview to launch.',
+      desc: 'Manage all client relationships and project lifecycles from initial strategy to final delivery. Lead the end-to-end design and development of high-performance, responsive sites that elevate client brand identity.',
+      current: false,
+    },
+    {
+      period: '2023 — 2025',
+      role: 'Treasurer · Secretary',
+      org: 'Pi Kappa Phi, Alpha Alpha Chapter',
+      desc: 'Managed chapter financial affairs — budgets, bank accounts, and expenditures — and kept meeting records with summaries distributed within 24 hours. Also served as Social Media Chair and Standards Board member.',
+      current: false,
+    },
+    {
+      period: '2022 — 2024',
+      role: 'Social Media Manager · Graphic Design Lead',
+      org: 'Mercer University Men’s Lacrosse',
+      desc: 'Designed social media campaigns to grow player visibility and engagement, using Adobe Creative Suite to keep branding consistent across platforms.',
       current: false,
     },
     {
       period: '2020 — 2025',
-      role: 'Graphic Design Team Lead',
+      role: 'Graphic Design Team Lead · Event Technician II',
       org: 'Cobb County School District',
-      desc: 'Scalable visual systems for high-traffic, district-wide digital platforms; translating complex information for diverse audiences.',
+      desc: 'Developed and deployed visual content and branding for district-wide events, and operated audio-visual systems to deliver high-quality multimedia across the district.',
       current: false,
     },
   ],
