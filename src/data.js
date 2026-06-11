@@ -26,6 +26,21 @@ export const hero = {
   ],
 }
 
+// honest numbers — evidence, not adjectives
+export const stats = [
+  { value: '06+', label: 'Years in digital' },
+  { value: '03', label: 'Industries served' },
+  { value: '04', label: 'Case studies' },
+  { value: '01', label: 'Tech stack owned end-to-end' },
+]
+
+export const credentials = [
+  { title: 'B.S. Information Science & Technology', org: 'Mercer University · 2026' },
+  { title: 'UX Research & Design · Technical Communication', org: 'Minors, Mercer University' },
+  { title: 'Technical Writing · Accessibility · Error Messages', org: 'Google for Developers · 2026' },
+  { title: 'Google AI Essentials', org: 'Coursera · 2025' },
+]
+
 export const ticker = [
   'Internal Product Development',
   'Process Automation',

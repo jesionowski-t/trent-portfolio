@@ -4,6 +4,7 @@ import Nav from './components/Nav.jsx'
 import Footer from './components/Footer.jsx'
 import ScrollManager from './components/ScrollManager.jsx'
 import CursorFX from './components/CursorFX.jsx'
+import ScrollProgress from './components/ScrollProgress.jsx'
 import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
 import Project from './pages/Project.jsx'
@@ -16,6 +17,7 @@ export default function App() {
     <>
       <ScrollManager />
       <CursorFX />
+      <ScrollProgress />
       <Nav />
       <AnimatePresence mode="wait" initial={false}>
         <Routes location={location} key={location.pathname}>

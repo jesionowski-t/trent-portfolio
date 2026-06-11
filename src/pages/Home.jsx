@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { capabilities, hero, projects, ticker } from '../data.js'
+import { capabilities, credentials, hero, projects, stats, ticker } from '../data.js'
 import Reveal, { AccentText, Page } from '../components/Reveal.jsx'
 
 const stagger = {
@@ -145,6 +145,20 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Stats strip ──────────────────────────────────── */}
+      <section className="stats" aria-label="Career at a glance">
+        <div className="section__inner stats__inner">
+          {stats.map((s, i) => (
+            <Reveal key={s.label} delay={i * 0.06}>
+              <div className="stats__item">
+                <span className="stats__value">{s.value}</span>
+                <span className="stats__label">{s.label}</span>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
       {/* ── Work index ───────────────────────────────────── */}
       <section className="section" id="work">
         <div className="section__inner">
@@ -178,6 +192,9 @@ export default function Home() {
                   <span className="work-row__meta">
                     <span className="work-row__org">{p.org}</span>
                     <span className="work-row__year">{p.year}</span>
+                  </span>
+                  <span className="work-row__cta" aria-hidden="true">
+                    View case study
                   </span>
                   <span className="work-row__arrow" aria-hidden="true">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -215,6 +232,30 @@ export default function Home() {
             ))}
           </div>
 
+        </div>
+      </section>
+
+      {/* ── Credentials ──────────────────────────────────── */}
+      <section className="section section--rule section--tight">
+        <div className="section__inner">
+          <Reveal>
+            <div className="section__head">
+              <h2 className="section__label">
+                <span aria-hidden="true">03 /</span> Credentials
+              </h2>
+              <span className="section__count">verified · current</span>
+            </div>
+          </Reveal>
+          <div className="cred-grid">
+            {credentials.map((c, i) => (
+              <Reveal key={c.title} delay={i * 0.05}>
+                <div className="cred-item">
+                  <span className="cred-item__title">{c.title}</span>
+                  <span className="cred-item__org">{c.org}</span>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 

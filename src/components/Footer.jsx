@@ -1,7 +1,30 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { footer, site } from '../data.js'
 import Reveal, { AccentText } from './Reveal.jsx'
 import ContactForm from './ContactForm.jsx'
+
+function LocalTime() {
+  const [time, setTime] = useState('')
+  useEffect(() => {
+    const fmt = new Intl.DateTimeFormat('en-US', {
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true,
+      timeZone: 'America/New_York',
+    })
+    const tick = () => setTime(fmt.format(new Date()))
+    tick()
+    const id = setInterval(tick, 1000)
+    return () => clearInterval(id)
+  }, [])
+  return (
+    <span className="footer__time" aria-label={`Local time in Atlanta: ${time} Eastern`}>
+      Atlanta, GA — {time} ET
+    </span>
+  )
+}
 
 export default function Footer() {
   return (
@@ -10,7 +33,10 @@ export default function Footer() {
         <div className="footer__main">
           <Reveal>
             <div className="footer__left">
-              <p className="kicker kicker--light">Contact</p>
+              <p className="footer__avail">
+                <span className="status-dot" aria-hidden="true" />
+                {site.availability}
+              </p>
               <h2 className="footer__headline">
                 <AccentText text={footer.headline} />
               </h2>
@@ -64,8 +90,13 @@ export default function Footer() {
           </div>
         </div>
 
+        <div className="footer__wordmark" aria-hidden="true">
+          Trent Jesionowski
+        </div>
+
         <div className="footer__bottom">
           <span>© {new Date().getFullYear()} {site.name}</span>
+          <LocalTime />
         </div>
       </div>
     </footer>
