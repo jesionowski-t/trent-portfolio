@@ -906,6 +906,52 @@ a {
   letter-spacing: -0.01em;
 }
 
+.pipe {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 12px;
+  margin-top: 14px;
+  padding: 22px 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background:
+    radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px) 0 0 / 22px 22px,
+    var(--panel);
+}
+
+.pipe__seg {
+  display: inline-flex;
+  align-items: center;
+}
+
+.pipe__node {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r);
+  background: var(--bg);
+  padding: 9px 16px;
+  white-space: nowrap;
+}
+
+.pipe__node--end {
+  color: #04130d;
+  background: var(--accent);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+.pipe__arrow {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent);
+  margin: 0 10px;
+}
+
 .project__section {
   padding: clamp(48px, 7vh, 84px) 0 0;
   max-width: 860px;

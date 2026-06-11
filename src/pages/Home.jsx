@@ -178,13 +178,6 @@ export default function Home() {
             ))}
           </div>
 
-          <Reveal>
-            <p className="cap-note">
-              <span className="cap-note__flag">NOTE</span>
-              Grounded in a UX research background — accessibility, usability testing, and design
-              thinking are part of how I build, not an afterthought.
-            </p>
-          </Reveal>
         </div>
       </section>
 

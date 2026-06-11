@@ -18,7 +18,7 @@ export const site = {
 export const hero = {
   kicker: 'Digital Systems & Product Analyst',
   headline: 'Turning manual operations into [modern systems].',
-  sub: 'I lead digital transformation from the inside — designing, building, and shipping the internal products, automations, and data infrastructure that change how a company runs. Currently owning the technology stack at Continuum Therapy Partners.',
+  sub: 'I design, build, and ship the internal systems that change how a company runs — currently owning the tech stack at Continuum Therapy Partners.',
   meta: [
     { label: 'Currently', value: 'Continuum Therapy Partners' },
     { label: 'Focus', value: 'Digital Transformation' },
@@ -51,36 +51,36 @@ export const projects = [
     timeline: '2026 — Present',
     tags: ['Digital Transformation', 'Internal Tools', 'Process Automation'],
     summary:
-      'Continuum Therapy Partners is a growing healthcare therapy company whose operations had outpaced its systems. As the primary owner of the technology stack — reporting directly to the CFO — I lead the work of replacing manual, spreadsheet-driven processes with internal software built around how the business actually runs.',
+      'Continuum’s operations outgrew its systems. As primary owner of the tech stack — reporting to the CFO — I replace manual, spreadsheet-driven processes with internal software built around how the business actually runs.',
     facts: [
       { label: 'Reports to', value: 'CFO' },
       { label: 'Scope', value: 'Company-wide' },
       { label: 'Departments', value: 'Finance · Operations · BD' },
     ],
+    pipeline: ['Manual ops', 'Map', 'Build', 'Automate', 'Scale'],
     challenge: [
-      'Like many growing healthcare organizations, Continuum ran on a patchwork of vendor platforms, spreadsheets, and manual handoffs. Critical workflows lived in people’s heads. Data existed, but assembling it into something decision-ready took days of hand work — and every manual step was a chance for errors to creep in.',
-      'The role I stepped into is deliberately broad: a solo technology owner at the intersection of operations, finance, and strategy, with a mandate to modernize — not just maintain.',
+      'A patchwork of vendor platforms, spreadsheets, and manual handoffs — where assembling decision-ready data took days, and every handoff invited errors.',
     ],
     approach: [
       {
         title: 'Map the real workflows',
-        desc: 'Stakeholder interviews and workflow shadowing across finance, operations, and business development — documenting how work actually happens before deciding what to build. My UX research training does heavy lifting here.',
+        desc: 'Workflow shadowing and stakeholder interviews before any code.',
       },
       {
         title: 'Build the internal product layer',
-        desc: 'Designing and shipping internal tools and applications that replace manual processes — built to be maintained and extended, not just demoed.',
+        desc: 'Tools built to be maintained, not just demoed.',
       },
       {
         title: 'Automate the repetitive',
-        desc: 'Identifying high-frequency, error-prone manual tasks and automating them away, freeing the team for work that actually needs judgment.',
+        desc: 'High-frequency, error-prone manual tasks — automated away.',
       },
       {
         title: 'Own the vendor ecosystem',
-        desc: 'Managing MIS and third-party platform relationships — evaluating performance, closing gaps, and making sure every system earns its place in the stack.',
+        desc: 'MIS and vendor platforms evaluated, managed, integrated.',
       },
     ],
     outcome: [
-      'This is active, ongoing work — the systems shipped here directly shape how the company scales. Because it involves internal financial and operational infrastructure, specifics are kept high-level in public.',
+      'Active, ongoing work that directly shapes how the company scales — specifics kept high-level in public.',
     ],
     note: 'Happy to walk through the details, architecture, and outcomes in conversation.',
     link: null,
@@ -96,31 +96,32 @@ export const projects = [
     timeline: '2026 — Present',
     tags: ['Data & Reporting', 'Dashboards', 'Systems Integration'],
     summary:
-      'Financial and operational decisions are only as good as the data behind them. I build and maintain the reporting tools and dashboards Continuum’s leadership relies on — and the data plumbing underneath that makes the numbers trustworthy.',
+      'I build the dashboards and data plumbing Continuum’s leadership relies on — so decisions run on numbers no one has to re-verify.',
     facts: [
       { label: 'Audience', value: 'Executive leadership' },
       { label: 'Focus', value: 'Data integrity' },
       { label: 'Sources', value: 'MIS · Vendor platforms' },
     ],
+    pipeline: ['Raw exports', 'Integrate', 'Define', 'Dashboard', 'Decide'],
     challenge: [
-      'Reporting was assembled by hand from systems that didn’t talk to each other. The same metric could mean different things depending on who pulled it and when. Leadership needed numbers they could act on without re-verifying them first.',
+      'Reporting assembled by hand from systems that didn’t talk to each other — the same metric could mean different things depending on who pulled it.',
     ],
     approach: [
       {
         title: 'One source of truth per metric',
-        desc: 'Defining where each number comes from, what it means, and who owns it — before building anything visual.',
+        desc: 'Every number gets a definition and an owner — before anything visual.',
       },
       {
         title: 'Connect the systems',
-        desc: 'Integrating data across vendor platforms and MIS systems so reporting pulls from live sources instead of manual exports.',
+        desc: 'Live integrations replace manual exports.',
       },
       {
         title: 'Dashboards people actually use',
-        desc: 'Reporting tools designed around the decisions they support — not around what the database happens to contain. Usability testing isn’t just for consumer apps.',
+        desc: 'Designed around decisions, not database tables.',
       },
     ],
     outcome: [
-      'An evolving reporting layer that turns multi-day manual assembly into on-demand answers, and gives financial and operational analysis a foundation the organization can trust.',
+      'Multi-day manual assembly, turned into on-demand answers.',
     ],
     note: 'Specific metrics and tooling shared in conversation.',
     link: null,
@@ -136,31 +137,32 @@ export const projects = [
     timeline: '3 weeks · 2025',
     tags: ['UX Design', 'Information Architecture', 'Prototyping'],
     summary:
-      'Apple Sports is built on a promise of speed and minimalism — but its architecture made power users dig for the scores they checked most. I restructured the app around a hub-and-spoke model designed to minimize time-to-task.',
+      'Apple Sports promises speed — but its architecture made power users dig for scores. I restructured it around a hub-and-spoke model that minimizes time-to-task.',
     facts: [
       { label: 'Duration', value: '3 weeks' },
       { label: 'Method', value: 'Hub-and-spoke IA' },
       { label: 'Fidelity', value: 'Interactive prototype' },
     ],
+    pipeline: ['Audit IA', 'Hub & spoke', 'Prototype', 'Validate'],
     challenge: [
-      'Sports fans check scores in stolen moments — between meetings, during commercials, walking to the car. Every extra tap between opening the app and seeing the score breaks the product’s core promise. The challenge: support high-density, real-time data for power users without sacrificing the brand’s minimalism.',
+      'Fans check scores in stolen moments — every extra tap breaks the product’s promise. And Apple’s minimalism wasn’t negotiable.',
     ],
     approach: [
       {
         title: 'Restructure the architecture',
-        desc: 'Rebuilt the app hierarchy in Figma around a hub-and-spoke model, putting the highest-frequency tasks one interaction from launch.',
+        desc: 'Top tasks moved to one interaction from launch.',
       },
       {
         title: 'Progressive disclosure',
-        desc: 'Layered information design that keeps surfaces clean by default while letting power users drill into high-density data when they want it.',
+        desc: 'Clean by default, data-dense on demand.',
       },
       {
         title: 'Prototype the real moments',
-        desc: 'Advanced from wireframes to high-fidelity interactive prototypes, testing real-time state changes — live scores, momentum shifts — in time-sensitive scenarios.',
+        desc: 'High-fidelity prototypes tested in time-sensitive scenarios.',
       },
     ],
     outcome: [
-      'A validated redesign that shortens speed-to-score flows while preserving the minimal aesthetic Apple Sports is known for — proof of how I approach product thinking: start from the user’s moment of need, then architect backward.',
+      'Faster speed-to-score, same minimal aesthetic — start from the user’s moment of need, architect backward.',
     ],
     note: null,
     link: { label: 'View the full case study', href: 'https://trentjesionowski.framer.website/' },
@@ -176,31 +178,32 @@ export const projects = [
     timeline: '2 months · 2025',
     tags: ['UX Research', 'Accessibility', 'WCAG 2.1'],
     summary:
-      'A two-month research study of Mercer University’s housing portal, focused on the students the system served worst — neurodivergent users navigating a high-stakes, deadline-driven process.',
+      'A two-month study of Mercer’s housing portal, focused on the students it served worst — neurodivergent users in a high-stakes, deadline-driven process.',
     facts: [
       { label: 'Duration', value: '2 months' },
       { label: 'Participants', value: '6 neurodivergent users' },
       { label: 'Standard', value: 'WCAG 2.1 A/AA' },
     ],
+    pipeline: ['Audit', 'Observe', 'Synthesize', 'Roadmap'],
     challenge: [
-      'Housing selection is one of the most stressful processes in a student’s year — and the portal’s structure amplified that stress for students with ADHD and other cognitive differences. Administrative staff absorbed the overflow: confused students became support tickets, calls, and walk-ins.',
+      'The portal amplified an already stressful process for students with ADHD — and staff absorbed the overflow as tickets, calls, and walk-ins.',
     ],
     approach: [
       {
         title: 'Audit against the standard',
-        desc: 'Evaluated the portal against WCAG 2.1 (A/AA), establishing an objective baseline of accessibility failures.',
+        desc: 'WCAG 2.1 (A/AA) baseline of accessibility failures.',
       },
       {
         title: 'Watch real users struggle',
-        desc: 'Moderated think-aloud sessions with six neurodivergent students, diagnosing the structural barriers behind the stress — not just the surface complaints.',
+        desc: 'Think-aloud sessions with six neurodivergent students.',
       },
       {
         title: 'Synthesize into specs',
-        desc: 'Used affinity diagramming to turn qualitative findings into concrete, inclusive design specifications and a design-thinking roadmap.',
+        desc: 'Affinity mapping into concrete, inclusive design specs.',
       },
     ],
     outcome: [
-      'A roadmap designed to cut both student anxiety and administrative overhead — the same lesson that drives my systems work today: fixing the structure underneath a process helps the people on both sides of it.',
+      'A roadmap that cuts student anxiety and staff overhead — fix the structure, help both sides of it.',
     ],
     note: null,
     link: { label: 'View the full case study', href: 'https://trentjesionowski.framer.website/' },
@@ -215,22 +218,22 @@ export const capabilities = {
     {
       num: '01',
       title: 'Internal Product Development',
-      desc: 'Designing, building, and maintaining the tools teams rely on daily — from first stakeholder interview to shipped, maintained software.',
+      desc: 'Tools teams rely on daily — from first interview to shipped software.',
     },
     {
       num: '02',
       title: 'Process Automation',
-      desc: 'Finding the manual, repetitive, error-prone workflows hiding in finance, operations, and business development — and automating them away.',
+      desc: 'Manual, error-prone workflows — found and automated away.',
     },
     {
       num: '03',
       title: 'Data & Reporting',
-      desc: 'Dashboards and reporting tools leadership actually uses, built on data that’s accurate, accessible, and connected across platforms.',
+      desc: 'Dashboards leadership actually uses, on data it can trust.',
     },
     {
       num: '04',
       title: 'Systems Strategy & Integration',
-      desc: 'Owning the tech stack: evaluating platforms, managing MIS and vendor relationships, and aligning every system with the business.',
+      desc: 'Platforms, vendors, and MIS — owned, evaluated, integrated.',
     },
   ],
 }
@@ -240,9 +243,8 @@ export const about = {
   kicker: 'About',
   title: 'Designer’s eye. Builder’s hands. [Operator’s mindset].',
   paragraphs: [
-    'I started in design — five years leading graphic design for one of Georgia’s largest school districts, then UX research and product design work spanning accessibility audits, usability testing, and interactive prototyping.',
-    'Somewhere along the way I realized the experiences I most wanted to fix weren’t on marketing sites. They were inside organizations: the spreadsheet held together with hope, the five-system workflow that should be one click, the report that takes a week to assemble by hand.',
-    'Now I do that work full-time. At Continuum Therapy Partners I own the technology stack for a growing healthcare therapy company — building the internal tools, automations, and data infrastructure that let the business scale. That’s the career I’m building: digital transformation that starts with people and ends in shipped systems.',
+    'Five years in design taught me how people think — UX research, accessibility audits, usability testing.',
+    'Now I build what they work in. At Continuum Therapy Partners I own the tech stack for a growing healthcare company: internal tools, automation, and data infrastructure. Digital transformation that starts with people and ends in shipped systems.',
   ],
   approach: {
     kicker: 'How I work',
@@ -251,22 +253,22 @@ export const about = {
       {
         num: '01',
         title: 'Discover',
-        desc: 'Stakeholder interviews, workflow shadowing, and systems audits to map how work really happens — not how the org chart says it does.',
+        desc: 'Map how work really happens — not how the org chart says it does.',
       },
       {
         num: '02',
         title: 'Design',
-        desc: 'Prototype the future state fast. Architecture, flows, and interfaces validated with the people who will live in them daily.',
+        desc: 'Prototype the future state fast, with the people who’ll live in it.',
       },
       {
         num: '03',
         title: 'Build',
-        desc: 'Ship working software — internal apps, automations, and integrations built to be maintained, not just demoed.',
+        desc: 'Working software, built to be maintained.',
       },
       {
         num: '04',
         title: 'Measure',
-        desc: 'Instrument what matters. Track adoption, time saved, and data quality — then iterate until the system earns its place.',
+        desc: 'Track adoption, time saved, and data quality — then iterate.',
       },
     ],
   },
@@ -275,35 +277,35 @@ export const about = {
       period: '2026 — Present',
       role: 'Digital Systems & Product Analyst',
       org: 'Continuum Therapy Partners',
-      desc: 'Primary internal owner of the company technology stack. Internal products, automation, reporting infrastructure, and MIS/vendor management — reporting directly to the CFO.',
+      desc: 'Owner of the company tech stack — internal products, automation, reporting, and vendor management. Reports to the CFO.',
       current: true,
     },
     {
       period: '2025 — Present',
       role: 'Founder & Web Designer',
       org: 'Centurion Site Design',
-      desc: 'Manage all client relationships and project lifecycles from initial strategy to final delivery. Lead the end-to-end design and development of high-performance, responsive sites that elevate client brand identity.',
+      desc: 'End-to-end design and delivery of high-performance client sites.',
       current: false,
     },
     {
       period: '2023 — 2025',
       role: 'Treasurer · Secretary',
       org: 'Pi Kappa Phi, Alpha Alpha Chapter',
-      desc: 'Managed chapter financial affairs — budgets, bank accounts, and expenditures — and kept meeting records with summaries distributed within 24 hours. Also served as Social Media Chair and Standards Board member.',
+      desc: 'Chapter finances, budgets, and records — plus Social Media Chair and Standards Board.',
       current: false,
     },
     {
       period: '2022 — 2024',
       role: 'Social Media Manager · Graphic Design Lead',
       org: 'Mercer University Men’s Lacrosse',
-      desc: 'Designed social media campaigns to grow player visibility and engagement, using Adobe Creative Suite to keep branding consistent across platforms.',
+      desc: 'Campaigns and consistent branding across platforms.',
       current: false,
     },
     {
       period: '2020 — 2025',
       role: 'Graphic Design Team Lead · Event Technician II',
       org: 'Cobb County School District',
-      desc: 'Developed and deployed visual content and branding for district-wide events, and operated audio-visual systems to deliver high-quality multimedia across the district.',
+      desc: 'Visual content and AV delivery for district-wide events.',
       current: false,
     },
   ],
@@ -343,5 +345,5 @@ export const about = {
 
 export const footer = {
   headline: 'Have a system that should [work better]?',
-  sub: 'Digital transformation, internal tooling, or comparing notes on modernizing operations — my inbox is open.',
+  sub: 'Digital transformation, internal tooling, or comparing notes — my inbox is open.',
 }

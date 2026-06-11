@@ -67,6 +67,26 @@ export default function Project() {
             </div>
           </Reveal>
 
+          {/* ── Pipeline diagram ─────────────────────────── */}
+          {p.pipeline && (
+            <Reveal delay={0.08}>
+              <div className="pipe" role="img" aria-label={`Process: ${p.pipeline.join(', then ')}`}>
+                {p.pipeline.map((node, i) => (
+                  <span className="pipe__seg" key={node}>
+                    <span className={`pipe__node ${i === p.pipeline.length - 1 ? 'pipe__node--end' : ''}`}>
+                      {node}
+                    </span>
+                    {i < p.pipeline.length - 1 && (
+                      <span className="pipe__arrow" aria-hidden="true">
+                        ─▶
+                      </span>
+                    )}
+                  </span>
+                ))}
+              </div>
+            </Reveal>
+          )}
+
           {/* ── Challenge ────────────────────────────────── */}
           <section className="project__section">
             <Reveal>
