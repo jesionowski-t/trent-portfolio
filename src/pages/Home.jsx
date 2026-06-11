@@ -12,60 +12,73 @@ const rise = {
   show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.21, 0.65, 0.27, 1] } },
 }
 
-function StatusPanel() {
-  const rows = [
-    { label: 'Process automation', status: 'Active', ok: true },
-    { label: 'Reporting pipeline', status: 'Live', ok: true },
-    { label: 'Vendor integrations', status: 'Synced', ok: true },
-    { label: 'Workflow redesign', status: 'In progress', ok: false },
+function SystemsDiagram() {
+  const nodes = [
+    { label: 'Finance', x: 18, y: 36 },
+    { label: 'Operations', x: 8, y: 122 },
+    { label: 'Vendors & MIS', x: 18, y: 208 },
+    { label: 'Spreadsheets', x: 38, y: 290 },
+  ]
+  const paths = [
+    'M136,53 C226,53 266,128 300,160',
+    'M126,139 C216,141 256,164 296,174',
+    'M136,225 C226,225 262,196 296,186',
+    'M156,307 C246,307 276,224 304,200',
   ]
   return (
-    <div
-      className="sys"
+    <motion.div
+      className="flow"
       role="img"
-      aria-label="Systems overview: process automation active, reporting pipeline live, vendor integrations synced, workflow redesign in progress — transformation from manual to modern underway"
+      aria-label="Diagram: Finance, Operations, Vendors and MIS, and spreadsheets all flowing into one unified platform"
+      initial={{ opacity: 0, scale: 0.96 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ delay: 0.35, duration: 0.8, ease: [0.21, 0.65, 0.27, 1] }}
     >
-      <div className="sys__bar" aria-hidden="true">
-        <span className="sys__dots">
-          <i /><i /><i />
-        </span>
-        <span className="sys__title">Systems overview — Continuum</span>
-      </div>
-      <div className="sys__body" aria-hidden="true">
-        {rows.map((r, i) => (
-          <motion.div
-            key={r.label}
-            className="sys__row"
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.45 + i * 0.18, duration: 0.4 }}
-          >
-            <span className={`sys__light ${r.ok ? '' : 'sys__light--warn'}`} />
-            <span className="sys__label">{r.label}</span>
-            <span className={`sys__status ${r.ok ? '' : 'sys__status--warn'}`}>{r.status}</span>
-          </motion.div>
+      <svg viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <filter id="flow-glow" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur stdDeviation="6" result="b" />
+            <feMerge>
+              <feMergeNode in="b" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        {/* connection paths */}
+        {paths.map((d, i) => (
+          <path key={i} className="flow__path" d={d} />
         ))}
-        <motion.div
-          className="sys__progress"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.45 + rows.length * 0.18 }}
-        >
-          <span className="sys__progress-label">
-            <span>Manual</span>
-            <span>Modern</span>
-          </span>
-          <span className="sys__track">
-            <motion.span
-              className="sys__fill"
-              initial={{ width: 0 }}
-              animate={{ width: '68%' }}
-              transition={{ delay: 0.6 + rows.length * 0.18, duration: 1.1, ease: [0.21, 0.65, 0.27, 1] }}
+
+        {/* pulses traveling the paths */}
+        {paths.map((d, i) => (
+          <circle key={`p${i}`} className="flow__pulse" r="3.2">
+            <animateMotion
+              dur={`${2.6 + i * 0.5}s`}
+              begin={`${0.6 + i * 0.45}s`}
+              repeatCount="indefinite"
+              path={d}
             />
-          </span>
-        </motion.div>
-      </div>
-    </div>
+          </circle>
+        ))}
+
+        {/* source nodes */}
+        {nodes.map((n, i) => (
+          <g key={n.label} className="flow__node" style={{ animationDelay: `${i * 0.7}s` }}>
+            <rect x={n.x} y={n.y} width="118" height="34" rx="8" />
+            <text x={n.x + 59} y={n.y + 22}>{n.label}</text>
+          </g>
+        ))}
+
+        {/* unified hub */}
+        <g className="flow__hub">
+          <circle className="flow__ring" cx="330" cy="180" r="48" />
+          <circle className="flow__hub-mid" cx="330" cy="180" r="33" />
+          <circle className="flow__core" cx="330" cy="180" r="9" filter="url(#flow-glow)" />
+          <text className="flow__hub-label" x="330" y="256">One platform</text>
+        </g>
+      </svg>
+    </motion.div>
   )
 }
 
@@ -97,7 +110,7 @@ export default function Home() {
           </motion.div>
 
           <motion.div className="hero__right" variants={rise}>
-            <StatusPanel />
+            <SystemsDiagram />
             <dl className="hero__meta">
               {hero.meta.map((m) => (
                 <div key={m.label}>
