@@ -37,7 +37,7 @@ export default function ContactForm() {
     return (
       <div className="cform cform--done" role="status">
         <p className="cform__ok">
-          <span aria-hidden="true">●</span> message transmitted
+          <span aria-hidden="true">●</span> Message sent
         </p>
         <p className="cform__ok-sub">Thanks — I’ll get back to you soon.</p>
         <button className="btn" type="button" onClick={() => setStatus('idle')}>
@@ -68,7 +68,7 @@ export default function ContactForm() {
 
       <div className="cform__foot">
         <button className="btn btn--solid" type="submit" disabled={status === 'sending'}>
-          {status === 'sending' ? 'Transmitting…' : 'Send message'}
+          {status === 'sending' ? 'Sending…' : 'Send message'}
           <span aria-hidden="true">→</span>
         </button>
         {status === 'error' && (

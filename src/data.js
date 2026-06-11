@@ -330,16 +330,17 @@ export const about = {
     },
   ],
   tools: [
-    'JavaScript / React',
-    'SQL & Databases',
-    'Power BI',
     'Process Automation',
     'Systems Integration',
+    'Workflow Design',
+    'Power BI & Reporting',
+    'Vendor & MIS Management',
     'Figma',
-    'WCAG Auditing',
     'Usability Testing',
-    'AI-Assisted Development',
+    'WCAG Auditing',
     'Technical Writing',
+    'AI-Assisted Development',
+    'SQL & Data',
   ],
 }
 

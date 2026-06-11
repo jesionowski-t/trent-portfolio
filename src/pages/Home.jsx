@@ -12,45 +12,58 @@ const rise = {
   show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.21, 0.65, 0.27, 1] } },
 }
 
-function Terminal() {
-  const lines = [
-    { prompt: '$', cmd: 'whoami' },
-    { out: 'trent.jesionowski — digital systems & product analyst' },
-    { prompt: '$', cmd: 'systemctl status' },
-    { out: '● active — building internal systems @ continuum-therapy', ok: true },
-    { prompt: '$', cmd: 'cat ./focus' },
-    { out: 'digital-transformation --end-to-end' },
+function StatusPanel() {
+  const rows = [
+    { label: 'Process automation', status: 'Active', ok: true },
+    { label: 'Reporting pipeline', status: 'Live', ok: true },
+    { label: 'Vendor integrations', status: 'Synced', ok: true },
+    { label: 'Workflow redesign', status: 'In progress', ok: false },
   ]
   return (
-    <div className="term" role="img" aria-label="Terminal: Trent Jesionowski, Digital Systems and Product Analyst, actively building internal systems at Continuum Therapy, focused on end-to-end digital transformation">
-      <div className="term__bar" aria-hidden="true">
-        <span className="term__dots">
+    <div
+      className="sys"
+      role="img"
+      aria-label="Systems overview: process automation active, reporting pipeline live, vendor integrations synced, workflow redesign in progress — transformation from manual to modern underway"
+    >
+      <div className="sys__bar" aria-hidden="true">
+        <span className="sys__dots">
           <i /><i /><i />
         </span>
-        <span className="term__title">trent@portfolio: ~</span>
+        <span className="sys__title">Systems overview — Continuum</span>
       </div>
-      <div className="term__body" aria-hidden="true">
-        {lines.map((l, i) => (
-          <motion.p
-            key={i}
-            className={l.out ? `term__out ${l.ok ? 'term__out--ok' : ''}` : 'term__cmd'}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 + i * 0.3, duration: 0.01 }}
+      <div className="sys__body" aria-hidden="true">
+        {rows.map((r, i) => (
+          <motion.div
+            key={r.label}
+            className="sys__row"
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.45 + i * 0.18, duration: 0.4 }}
           >
-            {l.prompt && <span className="term__prompt">{l.prompt} </span>}
-            {l.cmd || l.out}
-          </motion.p>
+            <span className={`sys__light ${r.ok ? '' : 'sys__light--warn'}`} />
+            <span className="sys__label">{r.label}</span>
+            <span className={`sys__status ${r.ok ? '' : 'sys__status--warn'}`}>{r.status}</span>
+          </motion.div>
         ))}
-        <motion.p
-          className="term__cmd"
+        <motion.div
+          className="sys__progress"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 + lines.length * 0.3 }}
+          transition={{ delay: 0.45 + rows.length * 0.18 }}
         >
-          <span className="term__prompt">$ </span>
-          <span className="term__cursor" />
-        </motion.p>
+          <span className="sys__progress-label">
+            <span>Manual</span>
+            <span>Modern</span>
+          </span>
+          <span className="sys__track">
+            <motion.span
+              className="sys__fill"
+              initial={{ width: 0 }}
+              animate={{ width: '68%' }}
+              transition={{ delay: 0.6 + rows.length * 0.18, duration: 1.1, ease: [0.21, 0.65, 0.27, 1] }}
+            />
+          </span>
+        </motion.div>
       </div>
     </div>
   )
@@ -84,7 +97,7 @@ export default function Home() {
           </motion.div>
 
           <motion.div className="hero__right" variants={rise}>
-            <Terminal />
+            <StatusPanel />
             <dl className="hero__meta">
               {hero.meta.map((m) => (
                 <div key={m.label}>
@@ -170,7 +183,7 @@ export default function Home() {
             {capabilities.items.map((c, i) => (
               <Reveal key={c.num} delay={i * 0.06}>
                 <div className="cap-card">
-                  <span className="cap-card__num">[{c.num}]</span>
+                  <span className="cap-card__num">{c.num}</span>
                   <h3>{c.title}</h3>
                   <p>{c.desc}</p>
                 </div>
