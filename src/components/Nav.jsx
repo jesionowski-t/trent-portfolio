@@ -34,7 +34,7 @@ export default function Nav() {
       <div className="nav__inner">
         <Link className="nav__logo" to="/" aria-label="Home">
           <span className="nav__logo-name">Trent Jesionowski</span>
-          <span className="nav__logo-role">Digital Systems & Product</span>
+          <span className="nav__logo-role">Digital Systems & Product Analyst</span>
         </Link>
 
         <nav className="nav__links" aria-label="Primary">
