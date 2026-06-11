@@ -1,11 +1,7 @@
-import { lazy, Suspense } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { capabilities, hero, projects, ticker } from '../data.js'
 import Reveal, { AccentText, Page } from '../components/Reveal.jsx'
-
-// three.js loads as its own chunk so the rest of the site stays fast
-const FlowScene = lazy(() => import('../components/FlowScene.jsx'))
 
 const stagger = {
   hidden: {},
@@ -14,6 +10,87 @@ const stagger = {
 const rise = {
   hidden: { opacity: 0, y: 26 },
   show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.21, 0.65, 0.27, 1] } },
+}
+
+function SystemsDiagram() {
+  // pills arc around the hub; x recedes as rows approach hub height
+  const nodes = [
+    { label: 'Finance', x: 44, y: 14 },
+    { label: 'Reporting', x: 22, y: 64 },
+    { label: 'Operations', x: 8, y: 114 },
+    { label: 'Vendors & MIS', x: 1, y: 164 },
+    { label: 'Spreadsheets', x: 1, y: 214 },
+    { label: 'Scheduling', x: 8, y: 264 },
+    { label: 'Billing', x: 22, y: 314 },
+    { label: 'Manual entry', x: 44, y: 364 },
+  ]
+  // where each path lands on the hub's left arc
+  const ends = [
+    [320, 168], [309, 182], [302, 194], [299, 203],
+    [299, 209], [302, 218], [309, 230], [320, 244],
+  ]
+  const paths = nodes.map((n, i) => {
+    const sx = n.x + 126
+    const sy = n.y + 16
+    const [ex, ey] = ends[i]
+    return `M${sx},${sy} C${sx + 80},${sy} ${ex - 60},${ey} ${ex},${ey}`
+  })
+
+  return (
+    <motion.div
+      className="flow"
+      role="img"
+      aria-label="Diagram: finance, reporting, operations, vendors and MIS, spreadsheets, scheduling, billing, and manual entry all flowing into one hub labeled efficient workflows"
+      initial={{ opacity: 0, scale: 0.96 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ delay: 0.35, duration: 0.8, ease: [0.21, 0.65, 0.27, 1] }}
+    >
+      <svg viewBox="0 0 440 410" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <filter id="flow-glow" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur stdDeviation="6" result="b" />
+            <feMerge>
+              <feMergeNode in="b" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        {/* connection paths */}
+        {paths.map((d, i) => (
+          <path key={i} className="flow__path" d={d} />
+        ))}
+
+        {/* pulses traveling the paths */}
+        {paths.map((d, i) => (
+          <circle key={`p${i}`} className="flow__pulse" r="3">
+            <animateMotion
+              dur={`${2.4 + (i % 4) * 0.55}s`}
+              begin={`${0.5 + i * 0.35}s`}
+              repeatCount="indefinite"
+              path={d}
+            />
+          </circle>
+        ))}
+
+        {/* source nodes */}
+        {nodes.map((n, i) => (
+          <g key={n.label} className="flow__node" style={{ animationDelay: `${i * 0.45}s` }}>
+            <rect x={n.x} y={n.y} width="126" height="32" rx="8" />
+            <text x={n.x + 63} y={n.y + 21}>{n.label}</text>
+          </g>
+        ))}
+
+        {/* hub */}
+        <g className="flow__hub">
+          <circle className="flow__ring" cx="340" cy="205" r="48" />
+          <circle className="flow__hub-mid" cx="340" cy="205" r="33" />
+          <circle className="flow__core" cx="340" cy="205" r="9" filter="url(#flow-glow)" />
+          <text className="flow__hub-label" x="340" y="278">Efficient workflows</text>
+        </g>
+      </svg>
+    </motion.div>
+  )
 }
 
 export default function Home() {
@@ -44,9 +121,7 @@ export default function Home() {
           </motion.div>
 
           <motion.div className="hero__right" variants={rise}>
-            <Suspense fallback={<div className="scene3d" aria-hidden="true" />}>
-              <FlowScene />
-            </Suspense>
+            <SystemsDiagram />
             <dl className="hero__meta">
               {hero.meta.map((m) => (
                 <div key={m.label}>
